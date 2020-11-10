@@ -17,10 +17,11 @@
 
 <!--        ВНИМАНИЕ-->
 <!--        путь к нашим Entity!!-->
+<!--        class , а не resource-->
 <!--        в отличии от mappingXml , где мы указывали путь к мэппингам-->
-        <mapping resource="entity.Address"></mapping>
-        <mapping resource="entity.Employee"></mapping>
-        <mapping resource="entity.Project"></mapping>
+        <mapping class="entity.Address"></mapping>
+        <mapping class="entity.Employee"></mapping>
+        <mapping class="entity.Project"></mapping>
 
     </session-factory>
 </hibernate-configuration>
