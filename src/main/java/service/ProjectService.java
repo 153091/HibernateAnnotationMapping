@@ -15,7 +15,7 @@ public class ProjectService extends SessionUtil implements ProjectDAO {
         // open session with a transaction
         openTransactionSession();
 
-        Session session = openSession();
+        Session session = getSession();
         session.save(project);
 
         //close session and transaction
@@ -29,7 +29,7 @@ public class ProjectService extends SessionUtil implements ProjectDAO {
 
         String sql = "SELECT * FROM PROJECT";
 
-        Session session = openSession();
+        Session session = getSession();
         // Создаем Query
         // Native - используем обычный sql
         Query query = session.createNativeQuery(sql).addEntity(Project.class);
@@ -48,7 +48,7 @@ public class ProjectService extends SessionUtil implements ProjectDAO {
 
         String sql = "SELECT * FROM PROJECT WHERE ID = :id";
 
-        Session session = openSession();
+        Session session = getSession();
         // Создаем Query
         // Native - используем обычный sql
         Query query = session.createNativeQuery(sql).addEntity(Project.class);
@@ -67,7 +67,7 @@ public class ProjectService extends SessionUtil implements ProjectDAO {
         // open session with a transaction
         openTransactionSession();
 
-        Session session = openSession();
+        Session session = getSession();
         session.update(project);
 
         //close session and transaction
@@ -79,7 +79,7 @@ public class ProjectService extends SessionUtil implements ProjectDAO {
         // open session with a transaction
         openTransactionSession();
 
-        Session session = openSession();
+        Session session = getSession();
         session.remove(project);
 
         //close session and transaction
