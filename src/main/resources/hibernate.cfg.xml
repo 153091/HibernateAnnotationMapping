@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<!--    Обязательно создаем сессию-->
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.password">sa</property>
+        <property name="hibernate.connection.url">jdbc:h2:~/test3</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="show_sql">true</property>
+<!--        create - получает коннекшн к БД, удаляет все таблички и создает новую структуру-->
+<!--        если базу пересоздавать не надо]6 а ттолько менять значения, то update-->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+<!--        ВНИМАНИЕ-->
+<!--        путь к нашим Entity!!-->
+<!--        в отличии от mappingXml , где мы указывали путь к мэппингам-->
+        <mapping resource="entity.Address"></mapping>
+        <mapping resource="entity.Employee"></mapping>
+        <mapping resource="entity.Project"></mapping>
+
+    </session-factory>
+</hibernate-configuration>
