@@ -67,6 +67,9 @@ public class Domain {
         employeeRepository.save(employee);
         projectRepository.save(project);
 
+        System.out.println();
         System.out.println(employeeRepository.findByFirstNameAndLastName("James", "Gordon"));
+        System.out.println();
+        System.out.println(employeeRepository.findByLastName("Gordon"));
     }
 }
