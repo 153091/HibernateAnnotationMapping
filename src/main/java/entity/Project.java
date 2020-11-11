@@ -49,19 +49,6 @@ public class Project {
         this.title = title;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Project project = (Project) o;
-        return id == project.id &&
-                Objects.equals(title, project.title);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title);
-    }
 
     @Override
     public String toString() {
