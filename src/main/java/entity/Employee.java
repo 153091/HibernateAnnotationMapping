@@ -1,16 +1,18 @@
 package entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
 
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee {
+public class Employee implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -56,11 +58,11 @@ public class Employee {
 
 
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

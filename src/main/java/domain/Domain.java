@@ -1,10 +1,13 @@
 package domain;
 
-import bl.HibernateUtil;
 import entity.Address;
 import entity.Employee;
 import entity.Project;
-import org.hibernate.Session;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import repository.AddressRepository;
+import repository.EmployeeRepository;
+import repository.ProjectRepository;
 
 import java.util.Calendar;
 import java.sql.Date;
@@ -14,12 +17,14 @@ import java.util.Set;
 public class Domain {
     public static void main(String[] args) {
 
-        // 1. первым делом нужно открыть сессию!
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        // конфигурация спринг через наш XML
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        // 2. Создать транзакцию в которой ммы будем сохранять
-        //     или извлекать данные
-        session.beginTransaction();
+        // создание репозиториев
+        // вытягиваем из контекста
+        AddressRepository addressRepository = context.getBean(AddressRepository.class);
+        EmployeeRepository employeeRepository = context.getBean(EmployeeRepository.class);
+        ProjectRepository projectRepository = context.getBean(ProjectRepository.class);
 
         // создание адреса
         Address address = new Address();
@@ -55,13 +60,10 @@ public class Domain {
 
 
         // сохраняем данные
-        session.save(address);
-        session.save(employee);
-        session.save(project);
+        addressRepository.save(address);
+        employeeRepository.save(employee);
+        projectRepository.save(project);
 
-        // подтверждение транзакции
-        session.getTransaction().commit();
-        // закрытие сессии
-        HibernateUtil.shutDown();
+        System.out.println(employeeRepository.findByFirstNameAndLastName("James", "Gordon"));
     }
 }
