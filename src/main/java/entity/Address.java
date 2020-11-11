@@ -1,13 +1,12 @@
 package entity;
 
-import com.sun.jdi.NativeMethodException;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "ADDRESS")
 public class Address implements Serializable {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

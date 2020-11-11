@@ -28,6 +28,7 @@ public class Domain {
 
         // создание адреса
         Address address = new Address();
+        address.setId(1L);
         address.setCountry("DC");
         address.setCity("Gotham City");
         address.setStreet("Arkham street 1");
@@ -35,6 +36,7 @@ public class Domain {
 
         // создание сотрудника
         Employee employee = new Employee();
+        employee.setId(1L);
         employee.setFirstName("James");
         employee.setLastName("Gordon");
 
@@ -46,6 +48,7 @@ public class Domain {
 
         // создание проекта
         Project project = new Project();
+        project.setId(1L);
         project.setTitle("5678");
 
         /** Many-to-Many */
